@@ -4,7 +4,7 @@ A sleek, web-based calculator built with HTML, CSS, and vanilla JavaScript. It f
 
 # Live Demo
 
-     https://naaima21.github.io/-calculator-project/
+https://naaima21.github.io/-calculator-project/
 
 ## ✨ Features
 
