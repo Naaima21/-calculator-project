@@ -26,9 +26,9 @@ A sleek, web-based calculator built with HTML, CSS, and vanilla JavaScript. It f
    ```
 2. Navigate into the project folder:
    ```bash
-   cd -calculator-project
+   cd  -calculator-project
    ```
-3. Open `calculator.html` in your browser.
+3. Open `index.html` in your browser.
 
 > Note: `index.html`, `style.css`, and `script.js` must stay in the same folder — they link to each other using relative paths.
 
@@ -44,7 +44,7 @@ A sleek, web-based calculator built with HTML, CSS, and vanilla JavaScript. It f
 ## 📁 Project Structure
 
 ```
-calculator-cx1/
+-calculator-project/
 ├── index.html        # Page structure
 ├── style.css         # Styling (retro LCD calculator theme)
 ├── script.js         # Calculator logic
