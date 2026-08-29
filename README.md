@@ -30,7 +30,7 @@ A sleek, web-based calculator built with HTML, CSS, and vanilla JavaScript. It f
    ```
 3. Open `calculator.html` in your browser.
 
-> Note: `calculator.html`, `style.css`, and `script.js` must stay in the same folder — they link to each other using relative paths.
+> Note: `index.html`, `style.css`, and `script.js` must stay in the same folder — they link to each other using relative paths.
 
 ## 🧠 How It Works
 
@@ -45,7 +45,7 @@ A sleek, web-based calculator built with HTML, CSS, and vanilla JavaScript. It f
 
 ```
 calculator-cx1/
-├── index.html   # Page structure
+├── index.html        # Page structure
 ├── style.css         # Styling (retro LCD calculator theme)
 ├── script.js         # Calculator logic
 └── README.md
