@@ -1,4 +1,4 @@
-# Model CX-1 Calculator
+# Calculator
 
 A sleek, web-based calculator built with HTML, CSS, and vanilla JavaScript. It features a dark, retro digital-screen aesthetic with correct order-of-operations (BODMAS) support.
 
@@ -22,11 +22,11 @@ A sleek, web-based calculator built with HTML, CSS, and vanilla JavaScript. It f
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/calculator-cx1.git
+   git clone https://github.com/Naaima21/-calculator-project.git
    ```
 2. Navigate into the project folder:
    ```bash
-   cd calculator-cx1
+   cd -calculator-project
    ```
 3. Open `calculator.html` in your browser.
 
@@ -45,7 +45,7 @@ A sleek, web-based calculator built with HTML, CSS, and vanilla JavaScript. It f
 
 ```
 calculator-cx1/
-├── calculator.html   # Page structure
+├── index.html   # Page structure
 ├── style.css         # Styling (retro LCD calculator theme)
 ├── script.js         # Calculator logic
 └── README.md
