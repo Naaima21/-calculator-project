@@ -39,8 +39,13 @@ function inputNumber(num) {
     expression = "";
     justEvaluated = false;
   }
+  const currentSegment = lastNumberSegment();
 
-  if (lastNumberSegment() === "0") {
+  if (currentSegment.length >= 15 && currentSegment !== "0") {
+    return;
+  }
+
+  if (currentSegment === "0") {
     expression = expression.slice(0, -1) + num;
   } else {
     expression += num;
