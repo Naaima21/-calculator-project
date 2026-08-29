@@ -2,6 +2,10 @@
 
 A sleek, web-based calculator built with HTML, CSS, and vanilla JavaScript. It features a dark, retro digital-screen aesthetic with correct order-of-operations (BODMAS) support.
 
+# Live Demo
+
+     https://naaima21.github.io/-calculator-project/
+
 ## ✨ Features
 
 - **Basic Arithmetic:** Addition, Subtraction, Multiplication, Division.

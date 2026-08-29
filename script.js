@@ -3,8 +3,8 @@ const resultEl = document.getElementById("result");
 
 const OPERATORS = ["+", "-", "×", "÷"];
 
-let expression = ""; // poora input jo type ho raha hai, e.g. "2+2"
-let justEvaluated = false; // true jab "=" abhi abhi press hua ho
+let expression = "";
+let justEvaluated = false;
 
 function fitFontSize() {
   const len = resultEl.textContent.length;
@@ -17,10 +17,8 @@ function fitFontSize() {
 
 function updateScreen() {
   if (justEvaluated) {
-    // "=" ke baad: neeche answer, upar expression pehle hi set ho chuka hota hai
     resultEl.textContent = expression;
   } else {
-    // typing ke dauran: poora expression neeche bold me, upar khali
     resultEl.textContent = expression === "" ? "0" : expression;
     expressionEl.textContent = "\u00A0";
   }
@@ -41,7 +39,7 @@ function inputNumber(num) {
     expression = "";
     justEvaluated = false;
   }
-  // "0" ke aage sirf zero na lagay
+
   if (lastNumberSegment() === "0") {
     expression = expression.slice(0, -1) + num;
   } else {
@@ -56,34 +54,31 @@ function inputDecimal() {
     justEvaluated = false;
   }
   const seg = lastNumberSegment();
-  if (seg.includes(".")) return; // ek hi decimal point allow
+  if (seg.includes(".")) return;
   expression += seg === "" ? "0." : ".";
   updateScreen();
 }
 
 function chooseOperator(op) {
   if (justEvaluated) {
-    justEvaluated = false; // result ke upar se hi agla operation chalu karo
+    justEvaluated = false;
   }
 
   if (expression === "") {
-    if (op === "-") expression = "-"; // negative number shuru karne ke liye
+    if (op === "-") expression = "-";
     updateScreen();
     return;
   }
 
   const lastChar = expression.slice(-1);
   if (isOperator(lastChar)) {
-    expression = expression.slice(0, -1) + op; // operator replace karo
+    expression = expression.slice(0, -1) + op;
   } else {
     expression += op;
   }
   updateScreen();
 }
 
-// Expression ko numbers aur operators ki tokens list me todta hai.
-// Sirf shuru ka "-" hi unary (negative sign) ho sakta hai, kyunke
-// UI kabhi do operators ek saath nahi lagne deta (chooseOperator me check hai).
 function tokenizeExpression(expr) {
   let negFirst = false;
   if (expr[0] === "-") {
@@ -92,18 +87,15 @@ function tokenizeExpression(expr) {
   }
   const tokens = expr.match(/(\d+\.?\d*)|[+\-×÷]/g) || [];
   if (negFirst && tokens.length > 0) {
-    tokens[0] = "-" + tokens[0]; // pehle number ko negative bana do
+    tokens[0] = "-" + tokens[0];
   }
   return tokens;
 }
 
-// BODMAS ke mutabiq evaluate karta hai: pehle × aur ÷ (left-to-right),
-// phir + aur - (left-to-right).
 function evaluateExpression(expr) {
   const tokens = tokenizeExpression(expr);
   if (tokens.length === 0) return NaN;
 
-  // Pass 1: Multiplication aur Division
   const stage1 = [parseFloat(tokens[0])];
   for (let i = 1; i < tokens.length; i += 2) {
     const op = tokens[i];
@@ -114,11 +106,11 @@ function evaluateExpression(expr) {
       const prev = stage1.pop();
       stage1.push(num === 0 ? NaN : prev / num);
     } else {
-      stage1.push(op, num); // + aur - abhi ke liye jaisa hai waisa rakho
+      stage1.push(op, num);
     }
   }
 
-  // Pass 2: Addition aur Subtraction
+  // Pass 2: Addition and Subtraction
   let result = stage1[0];
   for (let i = 1; i < stage1.length; i += 2) {
     const op = stage1[i];
@@ -135,7 +127,7 @@ function calculate() {
 
   let expr = expression;
   if (isOperator(expr.slice(-1))) {
-    expr = expr.slice(0, -1); // trailing operator hata do
+    expr = expr.slice(0, -1);
   }
 
   let result = evaluateExpression(expr);
